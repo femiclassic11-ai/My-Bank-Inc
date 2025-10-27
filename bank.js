@@ -24,6 +24,8 @@ const customerAccounts = [
 
 const BANK_NAME = "My Bank Inc"
 
+
+
 //function that check balance
 
 function checkBalance(accountId) {
@@ -34,6 +36,17 @@ function checkBalance(accountId) {
         console.log("Account not found");
     }
 }
+
+function findAccountById(accountId) {
+    const account = customerAccounts.find(acc => acc.accountId === accountId);
+    if (account) {
+        return account; 
+    } else {
+        console.log("Account not found.");
+        return null; // return null when not found
+    }
+}
+
 
 //function to deposit money
 
@@ -53,6 +66,7 @@ function deposit(accountId, amount) {
     }
 }
 
+
 //function to withdraw money
 
 function withdraw(accountId, amount) {
@@ -60,8 +74,9 @@ function withdraw(accountId, amount) {
     if (account) {
         const FEE_RATE = 0.01;
         const fee = amount * FEE_RATE;
-        if (amount + fee <= account.balance) {
-            account.balance -= amount + fee;
+        const feeDeduction = amount + fee
+        if (feeDeduction <= account.balance) {
+            account.balance -= feeDeduction;
             console.log(
                 `Withdrawal succesful! ₦${amount.toFixed(2)} withdrawn (fee: ₦${fee.toFixed(2)}).`
              );
@@ -72,6 +87,13 @@ function withdraw(accountId, amount) {
     } else {
         console.log("Account not found.");
     }
+}
+
+console.log();
+try {
+    console.log("Outside FEE_RATE:", FEE_RATE);
+} catch (error) {
+    console.log("Error: Something went wrong, please try again later");
 }
 
 console.log();
@@ -92,12 +114,15 @@ checkBalance(2501);
 checkBalance(2502);
 checkBalance(2503);
 
-console.log();
-try {
-    console.log("Outside FEE_RATE:", FEE_RATE);
-} catch (error) {
-    console.log("Error: Something went wrong, please try again later");
-}
+console.log(findAccountById(2501));
+console.log(findAccountById(2502));
+console.log(findAccountById(2503));
+
+
+
+
+
+
 
 
 
