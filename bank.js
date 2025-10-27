@@ -1,6 +1,4 @@
 
-
-
 //array of customer info objects
 
 const customerAccounts = [
