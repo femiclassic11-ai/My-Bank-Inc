@@ -37,7 +37,7 @@ function checkBalance(accountId) {
     }
 }
 
-function findAccountById(accountId) {
+function findAccount(accountId) {
     const account = customerAccounts.find(acc => acc.accountId === accountId);
     if (account) {
         return account; 
@@ -114,9 +114,9 @@ checkBalance(2501);
 checkBalance(2502);
 checkBalance(2503);
 
-console.log(findAccountById(2501));
-console.log(findAccountById(2502));
-console.log(findAccountById(2503));
+console.log(findAccount(2501));
+console.log(findAccount(2502));
+console.log(findAccount(2503));
 
 
 
