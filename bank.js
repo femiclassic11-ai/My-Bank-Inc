@@ -92,6 +92,14 @@ withdraw(2502, 100000.00);
 console.log();
 checkBalance(2501);
 checkBalance(2502);
+checkBalance(2503);
+
+console.log();
+try {
+    console.log("Outside FEE_RATE:", FEE_RATE);
+} catch (error) {
+    console.log("Error: Something went wrong, please try again later");
+}
 
 
 
